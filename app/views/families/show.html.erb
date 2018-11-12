@@ -5,5 +5,29 @@
   <%= @family.name %>
 </p>
 
+<h3>Family Members:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Santa</th>
+      <th>Previous Santas</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @family.members.each do |member| %>
+      <tr>
+        <td><%= member.name %></td>
+        <td><%= member.santa.try(:name) %></td>
+        <td><%= member.previous_santas %></td>
+        <td><%= link_to 'Show', member %></td>
+        <td><%= link_to 'Edit', edit_member_path(member) %></td>
+        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= link_to 'Edit', edit_family_path(@family) %> |
 <%= link_to 'Back', families_path %>

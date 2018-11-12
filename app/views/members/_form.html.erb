@@ -14,6 +14,8 @@
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :member_name %>
+    <%= form.label :family %>
+    <%= form.collection_select :family_id, Family.all, :id, :name %>
   </div>
 
   <div class="actions">
