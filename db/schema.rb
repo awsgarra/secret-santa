@@ -10,25 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181112020254) do
+ActiveRecord::Schema.define(version: 20181112020128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "members", force: :cascade do |t|
     t.string "name"
+    t.integer "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "secret_santas", force: :cascade do |t|
-    t.bigint "member_id"
-    t.bigint "chosen_member_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chosen_member_id"], name: "index_secret_santas_on_chosen_member_id"
-    t.index ["member_id", "chosen_member_id"], name: "index_secret_santas_on_member_id_and_chosen_member_id", unique: true
-    t.index ["member_id"], name: "index_secret_santas_on_member_id"
   end
 
 end
