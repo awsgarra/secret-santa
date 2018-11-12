@@ -1,4 +1,6 @@
 class Member < ApplicationRecord
+  belongs_to :family
+  
   def santa
     Member.find(santa_id) if santa_id
   end
