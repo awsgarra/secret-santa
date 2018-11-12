@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <h3><%= link_to 'Draw Santas!', '#' %></h3>
+    <h3><%= link_to 'Draw Santas!', draw_santas_path, method: :post %></h3>
     <% @members.each do |member| %>
       <tr>
         <td><%= member.name %></td>

@@ -61,6 +61,12 @@ class MembersController < ApplicationController
     end
   end
 
+  def draw_santas
+    if Member.draw_santas
+      redirect_to members_url, notice: 'Santas have been successfully drawn!'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member
